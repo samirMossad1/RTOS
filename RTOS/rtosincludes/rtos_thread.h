@@ -15,23 +15,6 @@
 /*Structures*/
 
 /*
- *
- * This is the thread structure which resembles a thread/task
- *
- */
-typedef struct
-{
-
-	uint32_t stack_ptr;		/*The thread stack pointer*/
-	uint32_t priority;		/*The thread priority level*/
-	RTOS_listItem_t item;   /*The thread item which will be placed inside the ready list*/
-
-
-}RTOS_thread_t;
-
-
-
-/*
  * This is the stack structure for any thread which resemble the thread Stack space
  *
  */
@@ -42,6 +25,25 @@ typedef struct
 											   Stack size=1024*8 Bytes per thread*/
 
 }RTOS_threadStack_t;
+
+
+
+/*
+ *
+ * This is the thread structure which resembles a thread/task
+ *
+ */
+typedef struct
+{
+	uint32_t 		stack_ptr;		/*The thread stack pointer*/
+	uint8_t   		priority;		/*The thread priority level*/
+	RTOS_listItem_t item;  /*The thread item which will be placed inside the ready list*/
+
+
+}RTOS_thread_t;
+
+
+
 
 
 
@@ -61,7 +63,7 @@ typedef struct
  *Returns: None
  *
  *--------------------------------------------------------------*/
-void RTOS_threadCreate(RTOS_thread_t*,RTOS_threadStack_t*,uint16_t,void*);
+void RTOS_threadCreate(RTOS_thread_t*,RTOS_threadStack_t*,uint8_t,void*);
 
 
 /* ------------------------------------------------------------
