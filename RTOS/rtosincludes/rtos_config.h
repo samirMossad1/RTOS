@@ -92,8 +92,10 @@
 #define PSR_THUMB_ACTION					((uint32_t)(0x01000000))
 
 
-
-
+/*
+ * Pendable service bit required to be set to generate the psv interrupt
+ */
+#define THE_PEND_SV_INT_BIT					(28U)
 
 
 #endif
