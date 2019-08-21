@@ -32,9 +32,9 @@ void RTOS_threadCreate(RTOS_thread_t* thread_ptr,RTOS_threadStack_t* threadStack
 
 	_MEMORY_32_ACCESS(&(thread_ptr->stack_ptr) + (EXCEPTION_WORD_SHIFT<<2) )=CONTROL_REGISTER_PSP_UNPR_NO_FPU;
 
-	_MEMORY_32_ACCESS((thread_ptr->stack_ptr) + (CONTROL_WORD_SHIFT<<2) )=(uint32_t)threadFun_ptr;
+	_MEMORY_32_ACCESS(&(thread_ptr->stack_ptr) + (CONTROL_WORD_SHIFT<<2) )=(uint32_t)threadFun_ptr;
 
-	_MEMORY_32_ACCESS((thread_ptr->stack_ptr) +   (PSRT_WORD_SHIFT<<2) )=PSR_THUMB_ACTION;
+	_MEMORY_32_ACCESS(&(thread_ptr->stack_ptr) +   (PSRT_WORD_SHIFT<<2) )=PSR_THUMB_ACTION;
 
 
 	thread_ptr->priority=priority_t;
