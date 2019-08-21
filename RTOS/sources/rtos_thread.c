@@ -7,10 +7,7 @@
 
 
 
-
-
 static RTOS_list_t readyList_g[THREAD_PRIORITY_LEVELS];
-
 
 static RTOS_thread_t* runningThread_gptr;
 
@@ -31,13 +28,13 @@ void RTOS_threadCreate(RTOS_thread_t* thread_ptr,RTOS_threadStack_t* threadStack
 
 	thread_ptr->stack_ptr=((uint32_t)threadStack_ptr+(THREAD_STACK_SIZE*DOUBLE_WORD_SIZE)-(STACK_CONTEXT_DATA_START*SINGLE_WORD_SIZE));
 
-	_MEMORY_32_ACCESS(thread_ptr->stack_ptr)=EXCEPTION_RETURN_PSP_UNPR_NO_FPU;
+	_MEMORY_32_ACCESS(&thread_ptr->stack_ptr)=EXCEPTION_RETURN_PSP_UNPR_NO_FPU;
 
-	_MEMORY_32_ACCESS(thread_ptr->stack_ptr + EXCEPTION_WORD_SHIFT<<2 )=CONTROL_REGISTER_PSP_UNPR_NO_FPU;
+	_MEMORY_32_ACCESS(&(thread_ptr->stack_ptr) + (EXCEPTION_WORD_SHIFT<<2) )=CONTROL_REGISTER_PSP_UNPR_NO_FPU;
 
-	_MEMORY_32_ACCESS(thread_ptr->stack_ptr + CONTROL_WORD_SHIFT<<2 )=(uint32_t)threadFun_ptr;
+	_MEMORY_32_ACCESS((thread_ptr->stack_ptr) + (CONTROL_WORD_SHIFT<<2) )=(uint32_t)threadFun_ptr;
 
-	_MEMORY_32_ACCESS(thread_ptr->stack_ptr + PSRT_WORD_SHIFT<<2 )=PSR_THUMB_ACTION;
+	_MEMORY_32_ACCESS((thread_ptr->stack_ptr) +   (PSRT_WORD_SHIFT<<2) )=PSR_THUMB_ACTION;
 
 
 	thread_ptr->priority=priority_t;
@@ -59,11 +56,14 @@ void RTOS_threadCreate(RTOS_thread_t* thread_ptr,RTOS_threadStack_t* threadStack
 
 		if(priority_t < runningThread_gptr->priority)
 		{
-			/*Context Switch*/
+			/*Context Switch : Trigger the Pendable Service Interrupt Handler*/
+
+			//SET_BIT(NVIC_INT_CTRL_R,THE_PEND_SV_INT_BIT);
 
 		}
 		else
 		{
+
 
 		}
 
@@ -73,8 +73,6 @@ void RTOS_threadCreate(RTOS_thread_t* thread_ptr,RTOS_threadStack_t* threadStack
 
 
 	}
-
-
 
 
 
