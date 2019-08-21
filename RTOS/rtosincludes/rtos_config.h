@@ -30,7 +30,7 @@
  * accessing null pointers(uninitialized)
  *
  * */
-#define CHECK_ERROR(X)    if(X==1)while(1)
+#define CHECK_ERROR(X)    if((X)==1)while(1);
 
 
 
