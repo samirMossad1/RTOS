@@ -8,6 +8,13 @@
 
 
 /*
+ * to access any hardware register with no compiler optimization
+ *
+ */
+#define _MEMORY_32_ACCESS(ADDRESSE)   (*( (volatile uint32_t *) (ADDRESSE) ))
+
+
+/*
 *
 *Maximum thread stack size is 1024 words
 *Note: we will use double word stack alignment thus maximum size is 1024*8 bytes
@@ -31,6 +38,38 @@
  *
  * */
 #define CHECK_ERROR(X)    if((X)==1)while(1);
+
+
+
+/*
+ *Indicates the last element in the context switch (Execption Return)
+ *
+ */
+#define STACK_CONTEXT_DATA_START		((uint32_t)(18U))
+
+
+/*
+ *  the word size is 4 bytes
+ */
+#define SINGLE_WORD_SIZE				((uint32_t)(4U))
+
+
+/*
+ *  the double word size is 8 bytes
+ */
+#define DOUBLE_WORD_SIZE				((uint32_t)(8U))
+
+
+#define EXCEPTION_WORD_SHIFT				(0X01)
+#define EXCEPTION_RETURN_PSP_UNPR_NO_FPU	((uint32_t)(0xFFFFFFFD))
+
+#define CONTROL_WORD_SHIFT					(0X10)
+#define CONTROL_REGISTER_PSP_UNPR_NO_FPU	((uint32_t)(0x03))
+
+#define PSRT_WORD_SHIFT						(0X11)
+#define PSR_THUMB_ACTION					((uint32_t)(0x01000000))
+
+
 
 
 
