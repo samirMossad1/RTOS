@@ -6,6 +6,25 @@
 
 
 
+void RTOS_listInit(RTOS_list_t* list_ptr)
+{
+
+	/*Check for Null pointers*/
+	CHECK_ERROR(list_ptr==NULL_PTR);
+
+	list_ptr->number_elements=(uint32_t)(0x0);
+
+	list_ptr->index_ptr=(RTOS_listItem_t*)(&(list_ptr->list_end));
+
+	list_ptr->list_end.next_ptr=(RTOS_listItem_t*)(&(list_ptr->list_end));
+
+	list_ptr->list_end.prev_ptr=(RTOS_listItem_t*)(&(list_ptr->list_end));
+
+
+
+}
+
+
 void RTOS_listInsert(RTOS_list_t* list_ptr,RTOS_listItem_t* new_listItem_ptr)
 {
 
@@ -30,7 +49,7 @@ void RTOS_listInsert(RTOS_list_t* list_ptr,RTOS_listItem_t* new_listItem_ptr)
 
 }
 
-void RTOS_listRemove(const RTOS_listItem_t* removed_listItem_ptr)
+void RTOS_listRemove(RTOS_listItem_t* removed_listItem_ptr)
 {
 
 	CHECK_ERROR(removed_listItem_ptr==NULL_PTR);

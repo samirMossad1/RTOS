@@ -7,7 +7,7 @@
 
 #include "../includes/macros.h"
 #include "../includes/std_types.h"
-
+#include "rtos_config.h"
 
 
 /*Structures*/
@@ -113,7 +113,7 @@ void RTOS_listInsert(RTOS_list_t*,RTOS_listItem_t*);
  *Returns: None
  *
  *--------------------------------------------------------------*/
-void RTOS_listRemove(const RTOS_listItem_t*);
+void RTOS_listRemove(RTOS_listItem_t*);
 
 
 #endif
