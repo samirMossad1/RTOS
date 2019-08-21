@@ -57,5 +57,59 @@ typedef struct
 
 
 
+/*Prototypes*/
+
+
+
+/* ------------------------------------------------------------
+ *Function-Name:RTOS_listInit
+ *
+ *Description: This function initializes and rtos list
+ *
+ *
+ *Inputs: reference to a RTOS_list_t structure,
+ *
+ *
+ *Returns: None
+ *
+ *--------------------------------------------------------------*/
+void RTOS_listInit(RTOS_list_t*);
+
+
+
+
+/* ------------------------------------------------------------
+ *Function-Name:RTOS_listInit
+ *
+ *Description: This function inserts an element inside the list
+ * 	  	  	   most probably at the end (index position)
+ *
+ *
+ *Inputs: reference to a RTOS_list_t structure,
+ *		  reference to a RTOS_listItem_t structure
+ *
+ *
+ *Returns: None
+ *
+ *--------------------------------------------------------------*/
+void RTOS_listInsert(const RTOS_list_t*,const RTOS_listItem_t*);
+
+
+
+
+/* ------------------------------------------------------------
+ *Function-Name:RTOS_listRemove
+ *
+ *Description: This function removes a list item from its list
+ *
+ *
+ *Inputs: reference to a RTOS_listItem_t structure,
+ *
+ *
+ *Returns: None
+ *
+ *--------------------------------------------------------------*/
+void RTOS_listRemove(const RTOS_listItem_t*);
+
 
 #endif
