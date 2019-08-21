@@ -5,7 +5,8 @@
 
 /*Includes*/
 
-
+#include "../includes/macros.h"
+#include "../includes/std_types.h"
 
 
 
@@ -16,16 +17,19 @@
  * it is the list item which will represent the thread in any list(ready/waiting)
  *
  */
-typedef struct
+
+struct listItem_t
 {
 
-	struct RTOS_listItem_t * nextItem_ptr;	/*pointer to the next element*/
-	struct RTOS_listItem_t * prevItem_ptr;	/*pointer to the previous element*/
+	struct listItem_t*  nextItem_ptr;	/*pointer to the next element*/
+	struct listItem_t*  prevItem_ptr;	/*pointer to the previous element*/
 
 	void*				  	 thread_ptr;	/*pointer to the list Item's thread structure*/
 	void*					 list_ptr;		/*pointer to the list Item's list structure*/
 
-}RTOS_listItem_t;
+};
+typedef struct listItem_t RTOS_listItem_t;
+
 
 
 /*
@@ -92,7 +96,7 @@ void RTOS_listInit(RTOS_list_t*);
  *Returns: None
  *
  *--------------------------------------------------------------*/
-void RTOS_listInsert(const RTOS_list_t*,const RTOS_listItem_t*);
+void RTOS_listInsert(RTOS_list_t*,RTOS_listItem_t*);
 
 
 
