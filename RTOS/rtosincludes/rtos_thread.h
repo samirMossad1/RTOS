@@ -48,6 +48,39 @@ typedef struct
 /*Prototypes*/
 
 
+/* ------------------------------------------------------------
+ *Function-Name:RTOS_threadCreate
+ *
+ *Description: This function creates a new thread
+ *
+ *Inputs: reference to a RTOS_thread_t structure,
+ *		  reference to a RTOS_threadStack_t structure,
+ *		  Priority number,
+ *		  void pointer (Pointer to the task/thread function)
+ *
+ *Returns: None
+ *
+ *--------------------------------------------------------------*/
+void RTOS_threadCreate(RTOS_thread_t*,RTOS_threadStack_t*,uint16_t,void*);
+
+
+/* ------------------------------------------------------------
+ *Function-Name:RTOS_SVC_threadCreate
+ *
+ *Description: This function issues SVC interrupt which calls the RTOS_threadCreate,
+ *			   function to create a new thread
+ *
+ *Inputs: reference to a RTOS_thread_t structure,
+ *		  reference to a RTOS_threadStack_t structure,
+ *		  Priority number,
+ *		  void pointer (Pointer to the task/thread function)
+ *
+ *Returns: None
+ *
+ *--------------------------------------------------------------*/
+
+void RTOS_SVC_threadCreate(RTOS_thread_t*,RTOS_threadStack_t*,uint16_t,void*);
+
 
 
 
