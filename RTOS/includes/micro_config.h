@@ -1,0 +1,17 @@
+
+
+#ifndef INCLUDES_MICRO_CONFIG_H_
+#define INCLUDES_MICRO_CONFIG_H_
+
+
+
+
+#define SYSTEM_HANDLER_PRIORITY_2__REGISTER		(*(volatile uint32_t*)(0xE0000D1C))
+#define SYSTEM_HANDLER_PRIORITY_3_REGISTER		(*(volatile uint32_t*)(0xE0000D20))
+#define SYSTEM_CONFIGURATION_CONTROL_REGISTER 	(*(volatile uint32_t*)(0xE0000D14))
+
+
+
+
+
+#endif /* INCLUDES_MICRO_CONFIG_H_ */
