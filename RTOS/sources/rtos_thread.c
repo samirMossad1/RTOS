@@ -3,7 +3,7 @@
 /*Includes*/
 
 #include "../rtosincludes/rtos_thread.h"
-
+#include "../rtosincludes/rtos_list.h"
 
 
 
@@ -12,6 +12,19 @@ static RTOS_list_t readyList_g[THREAD_PRIORITY_LEVELS];
 static RTOS_thread_t* runningThread_gptr;
 
 static uint8_t RTOS_currentTopPriority=THREAD_PRIORITY_LEVELS-1;
+
+
+
+void RTOS_initLists(void)
+{
+	uint8_t list_counter;
+
+	for(list_counter=0;list_counter<THREAD_PRIORITY_LEVELS;list_counter++)
+	{
+		RTOS_listInit(&readyList_g[list_counter]);
+	}
+
+}
 
 
 

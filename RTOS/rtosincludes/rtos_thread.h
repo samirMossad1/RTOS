@@ -80,11 +80,20 @@ void RTOS_threadCreate(RTOS_thread_t*,RTOS_threadStack_t*,uint8_t,void*);
  *Returns: None
  *
  *--------------------------------------------------------------*/
-
 void RTOS_SVC_threadCreate(RTOS_thread_t*,RTOS_threadStack_t*,uint16_t,void*);
 
 
-
+/* ------------------------------------------------------------
+ *Function-Name:RTOS_threadInitLists
+ *
+ *Description: This function initializes all the lists inside the ready list
+ *			   it calls the RTOS_listInit function present in the rtos_list.h header file
+ *Inputs:None
+ *
+ *Returns: None
+ *
+ *--------------------------------------------------------------*/
+void RTOS_threadInitLists(void);
 
 
 #endif
