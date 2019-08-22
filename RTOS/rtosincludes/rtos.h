@@ -11,7 +11,7 @@
 
 #include "rtos_thread.h"
 #include "rtos_list.h"
-
+#include "../includes/micro_config.h"
 
 
 
@@ -21,7 +21,22 @@
 
 
 /* ------------------------------------------------------------
- *Function-Name:RTOS_threadInitLists
+ *Function-Name:RTOS_init
+ *
+ *Description:This function initializes the whole RTOS
+ *			  This function should be called at first before
+ *			  using any other function.
+ *
+ *Inputs:None
+ *
+ *Returns: None
+ *
+ *--------------------------------------------------------------*/
+void RTOS_init(void);
+
+
+/* ------------------------------------------------------------
+ *Function-Name:RTOS_SVC_Handler_main
  *
  *Description: This function is to be branched to from the SVC handler
  *			   it will extract the SVC number
