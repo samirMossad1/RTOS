@@ -29,7 +29,7 @@
  * We will set the number of priority levels to 16 level
  *
  */
-#define THREAD_PRIORITY_LEVELS 		((uint32_t)(16u))
+#define THREAD_PRIORITY_LEVELS 		((uint32_t)(8u))
 
 
 /*
