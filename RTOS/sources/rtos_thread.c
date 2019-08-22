@@ -15,7 +15,7 @@ static uint8_t RTOS_currentTopPriority=THREAD_PRIORITY_LEVELS-1;
 
 
 
-void RTOS_initLists(void)
+void RTOS_threadInitLists(void)
 {
 	uint8_t list_counter;
 
